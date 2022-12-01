@@ -1,0 +1,23 @@
+﻿@model Department
+
+@{
+    ViewBag.Title = Model == null ? "Create":"Edit"  ;
+}
+
+<h2>@ViewBag.Title Department </h2>
+
+
+
+<form asp-action=@ViewBag.Title>
+    <div asp-validation-summary=All></div>
+
+    <label asp-for="DepartmentName" class="control-lable"></label>
+    <input asp-for="DepartmentName" class="form-control">
+
+    <div class="mt-3">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+
+
+</form>

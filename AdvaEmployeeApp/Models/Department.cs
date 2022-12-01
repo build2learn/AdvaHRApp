@@ -14,15 +14,18 @@
         [Display(Name="Department Name")]
         public string? DepartmentName { get; set; }
 
-        [Required]
-        [ForeignKey("Manager")]
-        public int DepartmentManagerID { get; set; }
+        [ForeignKey("DeptManager")]
+        public int? DepartmentManagerID { get; set; } = 0;
 
-        [Display(Name = "ManagerName")]
+        public virtual Employee? DeptManager { get; set; }
+
+        //public List<Employee>? Employees { get; set; }
+
+
+        [Display(Name = "Department Manager")]
         [NotMapped]
-        public int DepartmentManagerName { get; set; }
+        public string? DepartmentManager { get { return DeptManager?.EmployeeName; }/*; set; */}
 
-        public virtual Manager DepartmentManager { get; set; }
-       
+
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace AdvaEmployeeApp.Models
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace AdvaEmployeeApp.Models
 {
     [Table("Employee",Schema ="dbo")]
     public class Employee
@@ -24,10 +26,13 @@
         [ForeignKey("Department")]
         public int DepartmentID { get; set; }
          
-        [Display(Name ="Department")]
+        public int? ManagerID { get; set; }
+        [Display(Name = "Department")]
         [NotMapped]
         public string? DepartmentName { get; set; }
-
+        [Display(Name = "Manager")]
+        [NotMapped]
+        public string? ManagerName { get; set; }
         public virtual Department? Department { get; set; }
 
 

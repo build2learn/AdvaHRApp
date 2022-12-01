@@ -22,8 +22,11 @@ namespace AdvaEmployeeApp.Controllers
                                  EmployeeName = Employee.EmployeeName,
                                  Salary = Employee.Salary,
                                  DepartmentID = Employee.DepartmentID,
-                                 DepartmentName = Department.DepartmentName
-                             }).ToList().OrderBy(a=> a.DepartmentID);
+                                 DepartmentName = Department.DepartmentName,
+                                 ManagerName = this.DBContext.Employees.FirstOrDefault(m=>m.EmployeeId == Employee.ManagerID).EmployeeName
+                             }).ToList().OrderBy(a => a.DepartmentID);
+            //var employees=this.DBContext.Employees.ToList();
+
             return View(employees);
         }
 
@@ -53,7 +56,7 @@ namespace AdvaEmployeeApp.Controllers
             ViewBag.Departments=this.DBContext.Departments.ToList();
             return View("Create",employee);
         }
-
+        [HttpPost]
         public IActionResult Edit(Employee employee) {
             if (ModelState.IsValid)
             {
