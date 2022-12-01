@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<Department>
+@{
+    <h1> All Departments</h1>
+    <a asp-action="Create" class="btn btn-primary">Create New Department</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model=> model.DepartmentName)
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var Item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem=> Item.DepartmentName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit","Edit",new{id=Item.DepartmentId})
+                        @Html.ActionLink("Delete","Delete",new{id=Item.DepartmentId},new { onclick ="return confirm('Are you sure you want to delete this Departments?');"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+
+}

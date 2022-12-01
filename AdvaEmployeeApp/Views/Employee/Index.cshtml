@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Employee>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <h1>All Employees</h1>
+    <a asp-action="Create" class="btn btn-primary">Create New Employee</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model=> model.EmployeeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=> model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=> model.DepartmentName)
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var Item in Model)
+            {
+                <tr>
+                    <td>
+                         @Html.DisplayFor(modelitem=> Item.EmployeeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=> Item.Salary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=> Item.DepartmentName)
+                    </td>
+                    <td>
+                    @Html.ActionLink("Edit","Edit",new{id=Item.EmployeeId})
+                    @Html.ActionLink("Delete","Delete",new{id=Item.EmployeeId},new { onclick ="return confirm('Are you sure you want to delete this employee?');"})
+                    </td>
+                </tr>
+             }
+           
+        </tbody>
+
+    </table>
+
+
+
+
+
+}
