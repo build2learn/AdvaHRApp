@@ -15,7 +15,8 @@ namespace AdvaEmployeetApp.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.Departments = this._HRDBContext.Departments.ToList();
+            //ViewBag.Departments = this._HRDBContext.Departments.ToList();
+            ViewBag.Employee = this._HRDBContext.Employees.ToList();
             return View();
         }
 
@@ -29,6 +30,7 @@ namespace AdvaEmployeetApp.Controllers
                 _HRDBContext.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Employee = this._HRDBContext.Employees.ToList();
             return View();
         }
 
@@ -36,6 +38,7 @@ namespace AdvaEmployeetApp.Controllers
         public IActionResult Edit(int ID)
         {
             Department Department = this._HRDBContext.Departments.Where(e => e.DepartmentId == ID).FirstOrDefault();
+            ViewBag.Employee = this._HRDBContext.Employees.ToList();
             return View("Create", Department);
         }
 
@@ -48,6 +51,7 @@ namespace AdvaEmployeetApp.Controllers
                 _HRDBContext.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Employee = this._HRDBContext.Employees.ToList();
             return View("Create", Department);
         }
 

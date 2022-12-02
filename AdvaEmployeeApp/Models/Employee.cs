@@ -25,15 +25,17 @@ namespace AdvaEmployeeApp.Models
         [Required]
         [ForeignKey("Department")]
         public int DepartmentID { get; set; }
-         
-        public int? ManagerID { get; set; }
+        public virtual Department? Department { get; set; }
+
         [Display(Name = "Department")]
         [NotMapped]
         public string? DepartmentName { get; set; }
+
+        public int? ManagerID { get; set; }
+
         [Display(Name = "Manager")]
         [NotMapped]
         public string? ManagerName { get; set; }
-        public virtual Department? Department { get; set; }
 
 
     }

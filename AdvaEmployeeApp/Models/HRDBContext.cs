@@ -10,7 +10,8 @@ namespace AdvaEmployeeApp.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // It's not recommended to be here 
-            optionsBuilder.UseSqlServer("TrustServerCertificate=True;Server=172.16.50.10;Database=HRDB;User Id=cmsadmin;password=cmsadmin;");
+            //optionsBuilder.UseSqlServer("TrustServerCertificate=True;Server=172.16.50.10;Database=HRDB;User Id=cmsadmin;password=cmsadmin;");
+            optionsBuilder.UseSqlServer("TrustServerCertificate=True;Server=.;Database=HRDB;User Id=sa ;password=P@$$w0rd;");
         }
     }
 }

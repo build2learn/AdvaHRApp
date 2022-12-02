@@ -25,7 +25,6 @@ namespace AdvaEmployeeApp.Controllers
                                  DepartmentName = Department.DepartmentName,
                                  ManagerName = this.DBContext.Employees.FirstOrDefault(m=>m.EmployeeId == Employee.ManagerID).EmployeeName
                              }).ToList().OrderBy(a => a.DepartmentID);
-            //var employees=this.DBContext.Employees.ToList();
 
             return View(employees);
         }

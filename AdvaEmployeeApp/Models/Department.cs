@@ -5,6 +5,7 @@
     public class Department
     {
         [Key]
+        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name="Department ID")]
         public int DepartmentId { get; set; }
@@ -16,15 +17,14 @@
 
         [ForeignKey("DeptManager")]
         public int? DepartmentManagerID { get; set; } = 0;
+        [Display(Name = "Department Manager")]
 
         public virtual Employee? DeptManager { get; set; }
 
-        //public List<Employee>? Employees { get; set; }
 
-
-        [Display(Name = "Department Manager")]
-        [NotMapped]
-        public string? DepartmentManager { get { return DeptManager?.EmployeeName; }/*; set; */}
+        //[Display(Name = "Department Manager")]
+        //[NotMapped]
+        //public string? DepartmentManager { get { return DeptManager?.EmployeeName; }/*; set; */}
 
 
     }
